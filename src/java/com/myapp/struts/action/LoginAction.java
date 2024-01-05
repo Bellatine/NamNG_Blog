@@ -6,6 +6,8 @@
 
 package com.myapp.struts.action;
 
+import com.myapp.struts.DBConfiguration.ConnectionPool;
+import com.myapp.struts.Util;
 import com.myapp.struts.form.LoginForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,6 +27,8 @@ public class LoginAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        Util.pool = ConnectionPool.getInstance();
+        
         LoginForm formBean = (LoginForm) form;
         String user = formBean.getUsername();
         String pass = formBean.getPassword();

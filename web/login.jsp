@@ -4,30 +4,6 @@
 <%@page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<!--<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Đăng nhập BLOG</title>
-    <link rel="stylesheet" href="./jsp/css/login.css">
-    
-</head>
-<body>
-    <div class="left-side"></div>
-    <div class="right-side">
-        <div id="login-container">
-            <h2>Đăng nhập vào BLOG</h2>  
-            <form action="login.do" method="post">   
-                <input type="text" name="username" placeholder="Địa chỉ email hoặc số điện thoại"/>
-
-                <input type="password" name="password" placeholder="Mật khẩu" />
-
-                <input type="submit" value="Đăng nhập">
-            </form> 
-        </div>
-    </div>
-</body>
-</html>-->
-
 <html>
 <head>
 <title>NamNG Blog</title>
