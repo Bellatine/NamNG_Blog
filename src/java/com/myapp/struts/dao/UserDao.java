@@ -4,10 +4,14 @@
  */
 package com.myapp.struts.dao;
 
+import com.myapp.struts.dto.UserDto;
+
 /**
  *
  * @author user
  */
-public class UserDao {
-    
+public interface UserDao {
+    public UserDto getUserbyUsername(String username);
+
+    public void addUser(UserDto newUser);
 }

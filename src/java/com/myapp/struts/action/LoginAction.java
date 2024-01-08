@@ -8,6 +8,9 @@ package com.myapp.struts.action;
 
 import com.myapp.struts.DBConfiguration.ConnectionPool;
 import com.myapp.struts.Util;
+import com.myapp.struts.dao.UserDao;
+import com.myapp.struts.dao.impl.UserDaoImpl;
+import com.myapp.struts.dto.UserDto;
 import com.myapp.struts.form.LoginForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,21 +31,26 @@ public class LoginAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         Util.pool = ConnectionPool.getInstance();
+
+        UserDao userDao = new UserDaoImpl();
         
         LoginForm formBean = (LoginForm) form;
         String user = formBean.getUsername();
         String pass = formBean.getPassword();
-//        if (checkuserpass(user,pass)==1){
-//            formBean.setName(name);
-            return mapping.findForward(SUCCESS);
-        //}
-        /*else
-        if ((user == null) || 
-            pass.length() < 8 || 
-            user.equals("")) {   
         
-        return mapping.findForward(FAILURE);
-        }*/
-        //return mapping.findForward(FAILURE);
+        
+        
+        if ((user == null) || pass.length() < 8 || user.equals("")) {
+            return mapping.findForward(FAILURE);
+        }
+        UserDto userDto = userDao.getUserbyUsername(user);
+
+        if (pass.equals(userDto.getPassword())){
+            Util.user = userDto;
+            return mapping.findForward(SUCCESS);
+        }else{
+            return mapping.findForward(FAILURE);
+        }
+
     }
 }

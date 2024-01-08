@@ -8,6 +8,8 @@ import com.myapp.struts.Util;
 import com.myapp.struts.dao.UserDao;
 import com.myapp.struts.dto.UserDto;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -17,15 +19,30 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public UserDto getUserbyUsername(String username) {
-        Connection con = Util.pool.getConnection();
-        UserDto user;
-        String query = "select * from users where user_account = ?";
-        
+        Connection conn = Util.pool.getConnection();
+        UserDto user = null;
+        String query = "select * from users where username = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try{
+            preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1,username);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                user = new UserDto(resultSet.getInt("id"),resultSet.getString("username"),
+                        resultSet.getString("password"), resultSet.getString("fullname"),
+                        resultSet.getString("email"),resultSet.getInt("status"),resultSet.getTime("timecreate"));
+                break;
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
     @Override
     public void addUser(UserDto newUser) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
     }
     
 }

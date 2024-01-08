@@ -72,18 +72,6 @@
     <div class="right-side">
         <div id="login-container">
             <h2>Đăng nhập vào BLOG</h2>
-                <bean:write name="LoginForm" property="error" filter="false"/>
-                <html:text property="username" name="username"/>
-                <html:password property="password" name="password"/>
-                <button type="submit">
-                    <html:submit value="Login"/>
-                </button>
-<!--
-                <input type="text" id="username" name="username" placeholder="Địa chỉ email hoặc số điện thoại" required>
-
-                <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
-
-                <input type="submit" value="Đăng nhập">-->
         </div>
     </div>
 </body>

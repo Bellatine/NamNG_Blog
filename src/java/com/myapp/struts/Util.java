@@ -4,10 +4,14 @@
  */
 package com.myapp.struts;
 
+import com.myapp.struts.DBConfiguration.ConnectionPool;
+import com.myapp.struts.dto.UserDto;
+
 /**
  *
  * @author user
  */
 public class Util {
-    
+    public static ConnectionPool pool;
+    public static UserDto user;
 }

@@ -43,8 +43,15 @@ public class ConnectionPool {
             Class.forName("org.postgresql.Driver");
 
             for (int i = 0; i < MAX_CONNECTIONS; i++) {
-                Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres",
-                        "postgres", "1");
+                
+                String ip = "localhost";
+                String port = "5432";
+                String database = "NamNG_Blog";
+                String url = "jdbc:postgresql://"+ ip + ":" + port +  "/" + database;
+                String username = "postgres";
+                String password = "namhhbg0001";
+
+                Connection connection = DriverManager.getConnection(url,username, password);
                 connections.add(connection);
             }
         } catch (ClassNotFoundException | SQLException e) {
