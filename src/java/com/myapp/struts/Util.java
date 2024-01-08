@@ -4,10 +4,12 @@
  */
 package com.myapp.struts;
 
+import com.myapp.struts.DBConfiguration.ConnectionPool;
+
 /**
  *
  * @author user
  */
 public class Util {
-    
+    public static ConnectionPool pool;
 }
