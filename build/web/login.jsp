@@ -37,7 +37,7 @@
                             <input type="password" id="password1" name="password" placeholder="Password" title="Mật khẩu" />
 			</div>			
 			
-			<input type="submit" class="register" value="Register">
+			<input type="submit" class="register" value="Login">
 		</form>
 		<p class="wthree w3l">Fast Login With Your Favourite Social Profile</p>
 		<ul class="social-agileinfo wthree2">

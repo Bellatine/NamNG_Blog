@@ -13,5 +13,6 @@ import com.myapp.struts.dto.UserDto;
 public interface UserDao {
     public UserDto getUserbyUsername(String username);
 
-    public void addUser(UserDto newUser);
+    public int addUser(UserDto newUser);
+    
 }

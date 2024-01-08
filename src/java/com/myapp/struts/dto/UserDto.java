@@ -31,6 +31,13 @@ public class UserDto {
         this.createtime = createtime;
     }
 
+    public UserDto(String username, String password, String fullname, String email) {
+        this.username = username;
+        this.password = password;
+        this.fullname = fullname;
+        this.email = email;
+    }
+    
     public int getId() {
         return id;
     }
@@ -85,6 +92,11 @@ public class UserDto {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
+    }
+    
+    public String logInfor(){
+        String log = this.getUsername() + " - " + this.getPassword() + " - " + this.getFullname() + " - " + this.getEmail();
+        return log;
     }
     
     

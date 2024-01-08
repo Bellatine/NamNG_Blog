@@ -10,6 +10,7 @@ import com.myapp.struts.dto.UserDto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -32,6 +33,7 @@ public class UserDaoImpl implements UserDao {
                 user = new UserDto(resultSet.getInt("id"),resultSet.getString("username"),
                         resultSet.getString("password"), resultSet.getString("fullname"),
                         resultSet.getString("email"),resultSet.getInt("status"),resultSet.getTime("timecreate"));
+                //System.out.println(user.logInfor());
                 break;
             }
         }catch (Exception e) {
@@ -41,8 +43,18 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void addUser(UserDto newUser) {
-
+    public int addUser(UserDto newUser) {
+        Connection conn = Util.pool.getConnection();
+        String query = "insert into users(username, password, fullname, email) values(?,?,?,?)";
+        PreparedStatement preparedStatement = null;
+        try{
+            return preparedStatement.executeUpdate(query);
+        }catch(SQLException e){
+            return -1;
+        }
+        
+        
+        
     }
     
 }

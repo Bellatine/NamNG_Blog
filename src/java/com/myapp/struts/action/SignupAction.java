@@ -1,9 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package com.myapp.struts.action;
 
 import com.myapp.struts.DBConfiguration.ConnectionPool;
@@ -11,7 +9,7 @@ import com.myapp.struts.Util;
 import com.myapp.struts.dao.UserDao;
 import com.myapp.struts.dao.impl.UserDaoImpl;
 import com.myapp.struts.dto.UserDto;
-import com.myapp.struts.form.LoginForm;
+import com.myapp.struts.form.SignupForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -22,7 +20,7 @@ import org.apache.struts.action.ActionMapping;
  *
  * @author user
  */
-public class LoginAction extends org.apache.struts.action.Action {
+public class SignupAction extends org.apache.struts.action.Action {
     private static final String SUCCESS = "success";
     private static final String FAILURE = "failure";
     
@@ -34,22 +32,25 @@ public class LoginAction extends org.apache.struts.action.Action {
 
         UserDao userDao = new UserDaoImpl();
         
-        LoginForm formBean = (LoginForm) form;
+        SignupForm formBean = (SignupForm) form;
+        String name = formBean.getFirstname();
+        String email = formBean.getEmail();
         String user = formBean.getUsername();
         String pass = formBean.getPassword();
         
-        System.out.println("input: " + user + "  " + pass);
+        UserDto userDto = new UserDto(user, pass, name, email);
+        
+        //System.out.println("input: " + user + "  " + pass);
         
         
-        if ((user == null) || pass.length() < 8 || user.equals("")) {
+        if ((user == null) || pass.length() < 8 || user.equals("") || (name == null) || (name.equals(""))) {
             return mapping.findForward(FAILURE);
         }
-        UserDto userDto = userDao.getUserbyUsername(user);
+         
         
         //System.out.println("Action: " + userDto.logInfor());
 
-        if (pass.equals(userDto.getPassword())){
-            Util.user = userDto;
+        if (userDao.addUser(userDto) != -1){
             return mapping.findForward(SUCCESS);
         }else{
             return mapping.findForward(FAILURE);
