@@ -6,13 +6,15 @@ package com.myapp.struts.dao;
 
 import com.myapp.struts.dto.UserDto;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author user
  */
 public interface UserDao {
-    public UserDto getUserbyUsername(String username);
+    public UserDto getUserbyUsername(String username) throws SQLException;
 
-    public int addUser(UserDto newUser);
+    public int addUser(UserDto newUser) throws SQLException;
     
 }

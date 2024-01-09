@@ -12,6 +12,6 @@ import com.myapp.struts.dto.UserDto;
  * @author user
  */
 public class Util {
-    public static ConnectionPool pool;
-    public static UserDto user;
+    public static ConnectionPool pool = null;
+    public static UserDto user = null;
 }

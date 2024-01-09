@@ -84,8 +84,8 @@ public class SignupForm extends org.apache.struts.action.ActionForm {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
+
     
     
     
