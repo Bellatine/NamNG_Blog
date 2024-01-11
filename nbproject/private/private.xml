@@ -3,16 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Netbean/NamNG_Blog/web/jsp/css/templatemo-xtra-blog.css</file>
-            <file>file:/E:/Netbean/NamNG_Blog/web/jsp/fontawesome/css/all.min.css</file>
-            <file>file:/E:/Netbean/NamNG_Blog/web/jsp/js/templatemo-script.js</file>
-            <file>file:/E:/Netbean/NamNG_Blog/web/jsp/index.jsp</file>
-            <file>file:/E:/Netbean/NamNG_Blog/web/jsp/post.html</file>
-            <file>file:/E:/Netbean/NamNG_BLOG/src/java/com/myapp/struts/DBConfiguration/ConnectionPool.java</file>
-            <file>file:/E:/Netbean/NamNG_Blog/web/home.jsp</file>
-            <file>file:/E:/Netbean/NamNG_Blog/web/Signup.jsp</file>
-            <file>file:/E:/Netbean/NamNG_Blog/web/jsp/js/jquery.min.js</file>
-            <file>file:/E:/Netbean/NamNG_BLOG/src/java/com/myapp/struts/dao/impl/UserDaoImpl.java</file>
+            <file>file:/Users/admin/Documents/Project/GIT/NamNG_Blog/src/java/com/myapp/struts/DBConfiguration/ConnectionPool.java</file>
+            <file>file:/Users/admin/Documents/Project/GIT/NamNG_Blog/src/java/com/myapp/struts/action/LoginAction.java</file>
+            <file>file:/Users/admin/Documents/Project/GIT/NamNG_Blog/src/java/com/myapp/struts/dao/impl/UserDaoImpl.java</file>
+            <file>file:/Users/admin/Documents/Project/GIT/NamNG_Blog/web/contact.jsp</file>
+            <file>file:/Users/admin/Documents/Project/GIT/NamNG_Blog/nbproject/build-impl.xml</file>
+            <file>file:/Users/admin/Documents/Project/GIT/NamNG_Blog/web/welcomeStruts.jsp</file>
+            <file>file:/Users/admin/Documents/Project/GIT/NamNG_Blog/web/login.jsp</file>
+            <file>file:/Users/admin/Documents/Project/GIT/NamNG_Blog/web/WEB-INF/struts-config.xml</file>
+            <file>file:/Users/admin/Documents/Project/GIT/NamNG_Blog/web/post.jsp</file>
+            <file>file:/Users/admin/Documents/Project/GIT/NamNG_Blog/web/about.jsp</file>
+            <file>file:/Users/admin/Documents/Project/GIT/NamNG_Blog/web/home.jsp</file>
         </group>
     </open-files>
 </project-private>

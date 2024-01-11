@@ -34,15 +34,15 @@
                     <i class="fas fa-home"></i>
                     Blog Home
                 </a></li>
-                <li class="tm-nav-item"><a href="post.html" class="tm-nav-link">
+                <li class="tm-nav-item"><a href="post.jsp" class="tm-nav-link">
                     <i class="fas fa-pen"></i>
                     Single Post
                 </a></li>
-                <li class="tm-nav-item"><a href="about.html" class="tm-nav-link">
+                <li class="tm-nav-item"><a href="about.jsp" class="tm-nav-link">
                     <i class="fas fa-users"></i>
                     About Xtra
                 </a></li>
-                <li class="tm-nav-item"><a href="contact.html" class="tm-nav-link">
+                <li class="tm-nav-item"><a href="contact.jsp" class="tm-nav-link">
                     <i class="far fa-comments"></i>
                     Contact Us
                 </a></li>
@@ -83,7 +83,7 @@
         <div class="row tm-row">
             <article class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
-                <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
+                <a href="post.jsp" class="effect-lily tm-post-link tm-pt-60">
                     <div class="tm-post-link-inner">
                         <img src="./jsp/img/img-01.jpg" alt="Image" class="img-fluid">
                     </div>
@@ -106,7 +106,7 @@
             </article>
             <article class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
-                <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
+                <a href="post.jsp" class="effect-lily tm-post-link tm-pt-60">
                     <div class=" tm-post-link-inner">
                         <img src="./jsp/img/img-02.jpg" alt="Image" class="img-fluid">
                     </div>
@@ -129,7 +129,7 @@
             </article>
             <article class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
-                <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
+                <a href="post.jsp" class="effect-lily tm-post-link tm-pt-20">
                     <div class="tm-post-link-inner">
                         <img src="./jsp/img/img-03.jpg" alt="Image" class="img-fluid">
                     </div>
@@ -151,7 +151,7 @@
             </article>
             <article class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
-                <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
+                <a href="post.jsp" class="effect-lily tm-post-link tm-pt-20">
                     <div class="tm-post-link-inner">
                         <img src="./jsp/img/img-04.jpg" alt="Image" class="img-fluid">
                     </div>
@@ -173,7 +173,7 @@
             </article>
             <article class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
-                <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
+                <a href="post.jsp" class="effect-lily tm-post-link tm-pt-20">
                     <div class="tm-post-link-inner">
                         <img src="./jsp/img/img-05.jpg" alt="Image" class="img-fluid">
                     </div>
@@ -197,7 +197,7 @@
             </article>
             <article class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
-                <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
+                <a href="post.jsp" class="effect-lily tm-post-link tm-pt-20">
                     <div class="tm-post-link-inner">
                         <img src="./jsp/img/img-06.jpg" alt="Image" class="img-fluid">
                     </div>

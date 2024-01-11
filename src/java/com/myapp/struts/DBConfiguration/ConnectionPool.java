@@ -49,7 +49,7 @@ public class ConnectionPool {
                 String database = "NamNG_Blog";
                 String url = "jdbc:postgresql://"+ ip + ":" + port +  "/" + database;
                 String username = "postgres";
-                String password = "1";
+                String password = "namhhbg0001";
 
                 Connection connection = DriverManager.getConnection(url,username, password);
                 connections.add(connection);
