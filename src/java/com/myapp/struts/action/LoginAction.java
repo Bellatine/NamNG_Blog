@@ -8,8 +8,11 @@ package com.myapp.struts.action;
 
 import com.myapp.struts.DBConfiguration.ConnectionPool;
 import com.myapp.struts.Util;
+import com.myapp.struts.dao.PostDao;
 import com.myapp.struts.dao.UserDao;
+import com.myapp.struts.dao.impl.PostDaoImpl;
 import com.myapp.struts.dao.impl.UserDaoImpl;
+import com.myapp.struts.dto.PostDto;
 import com.myapp.struts.dto.UserDto;
 import com.myapp.struts.form.LoginForm;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+
+import java.util.List;
 
 /**
  *
@@ -31,6 +36,7 @@ public class LoginAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         UserDao userDao = new UserDaoImpl();
+        PostDao postDao = new PostDaoImpl();
         
         LoginForm formBean = (LoginForm) form;
         String user = formBean.getUsername();
@@ -48,6 +54,12 @@ public class LoginAction extends org.apache.struts.action.Action {
 
         if (pass.equals(userDto.getPassword())){
             Util.user = userDto;
+            List<PostDto> listPost = postDao.getPostsByUser(Util.user.getId());
+            for(PostDto postDto:listPost){
+                System.out.println(postDto.logPosts());
+            }
+            System.out.println(Util.user.logInfor());
+            request.setAttribute("fullname", Util.user.getFullname());
             return mapping.findForward(SUCCESS);
         }else{
             return mapping.findForward(FAILURE);

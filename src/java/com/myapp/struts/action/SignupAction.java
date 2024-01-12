@@ -23,6 +23,8 @@ import org.apache.struts.action.ActionMapping;
 public class SignupAction extends org.apache.struts.action.Action {
     private static final String SUCCESS = "success";
     private static final String FAILURE = "failure";
+
+
     
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
