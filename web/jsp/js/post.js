@@ -10,10 +10,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // Thêm bài viết khác nếu cần
     ];
 
+    var jsonArray = '<%= request.getAttribute("jsonArray") %>';
+
+    // Chuyển đổi chuỗi JSON thành mảng JavaScript
+    var userDtoList = JSON.parse(jsonArray);
+
     const blogContainer = document.getElementById("blog-container");
 
     // Hiển thị bài viết
-    posts.forEach(post => {
+    userDtoList.forEach(post => {
         const postDiv = document.createElement("div");
         postDiv.className = "post";
 
@@ -22,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         contentDiv.className = "post-content";
 
         const title = document.createElement("h2");
-        title.textContent = post.title;
+        title.textContent = post.;
 
         const content = document.createElement("p");
         content.textContent = post.content;

@@ -13,8 +13,8 @@ import java.sql.SQLException;
  * @author user
  */
 public interface UserDao {
-    public UserDto getUserbyUsername(String username) throws SQLException;
+    public UserDto getUserbyUsername(String username, String email) throws SQLException;
 
     public int addUser(UserDto newUser) throws SQLException;
-    
+
 }

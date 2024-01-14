@@ -41,4 +41,28 @@ public class PostDaoImpl implements PostDao {
     public int insertPost(PostDto postDto) {
         return 0;
     }
+
+    @Override
+    public List<PostDto> getAllPost() {
+        List<PostDto> listPost = new ArrayList<>();
+        Connection conn = Util.pool.getConnection();
+        String query = "select * from posts";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try{
+            preparedStatement = conn.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                PostDto post = new PostDto(resultSet.getInt("id"), resultSet.getInt("user_id"), resultSet.getString("post_content"),
+                        resultSet.getDate("timecreate"),resultSet.getString("image"));
+                listPost.add(post);
+                //System.out.println(user.logInfor());
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            Util.pool.releaseConnection(conn);
+        }
+        return listPost;
+    }
 }

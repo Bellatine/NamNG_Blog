@@ -35,4 +35,5 @@ select * from posts where user_id = '5';
 
 
 
+select * from users where username = 'giangnam' or email = 'giangnam';
 select * from users;

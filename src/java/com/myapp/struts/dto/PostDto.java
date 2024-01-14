@@ -9,6 +9,8 @@ public class PostDto {
     private Date timecreate;
     private String image;
 
+    private String name;
+
     public PostDto(int id, int user_id, String post_content, Date timecreate, String image) {
         this.id = id;
         this.user_id = user_id;
@@ -21,6 +23,14 @@ public class PostDto {
         this.user_id = user_id;
         this.post_content = post_content;
         this.image = image;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getId() {

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 
 /**
@@ -48,17 +48,16 @@ public class LoginAction extends org.apache.struts.action.Action {
         if ((user == null) || pass.length() < 8 || user.equals("")) {
             return mapping.findForward(FAILURE);
         }
-        UserDto userDto = userDao.getUserbyUsername(user);
-        
+        UserDto userDto = userDao.getUserbyUsername(user, user);
+
         //System.out.println("Action: " + userDto.logInfor());
 
-        if (pass.equals(userDto.getPassword())){
+        if (userDto!=null && pass.equals(userDto.getPassword())){
             Util.user = userDto;
-            List<PostDto> listPost = postDao.getPostsByUser(Util.user.getId());
-            for(PostDto postDto:listPost){
-                System.out.println(postDto.logPosts());
-            }
-            System.out.println(Util.user.logInfor());
+            List<PostDto> listPost = postDao.getAllPost();
+            ObjectMapper objectMapper = new ObjectMapper();
+            String jsonArray = objectMapper.writeValueAsString(listPost);
+            request.setAttribute("jsonArray", jsonArray);
             request.setAttribute("fullname", Util.user.getFullname());
             return mapping.findForward(SUCCESS);
         }else{

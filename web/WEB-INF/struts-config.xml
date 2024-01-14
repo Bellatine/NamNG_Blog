@@ -26,7 +26,7 @@
         </action>
         
         <action path="/signup" type="com.myapp.struts.action.SignupAction" name="signupForm" scope="request" validate="true" input="/Signup.jsp">
-            <forward name="failure" path="/welcomeStruts.jsp"/>
+            <forward name="failure" path="/Signup.jsp"/>
             <forward name="success" path="/login.jsp"/>
         </action>
     </action-mappings>

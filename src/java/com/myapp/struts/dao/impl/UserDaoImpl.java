@@ -24,15 +24,16 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public UserDto getUserbyUsername(String username) throws SQLException {
+    public UserDto getUserbyUsername(String username, String email) throws SQLException {
         Connection conn = Util.pool.getConnection();
         UserDto user = null;
-        String query = "select * from users where username = ?";
+        String query = "select * from users where username = ? or email = ?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try{
             preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1,username);
+            preparedStatement.setString(2,email);
             resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
                 user = new UserDto(resultSet.getInt("id"),resultSet.getString("username"),
@@ -74,5 +75,5 @@ public class UserDaoImpl implements UserDao {
         
         
     }
-    
+
 }

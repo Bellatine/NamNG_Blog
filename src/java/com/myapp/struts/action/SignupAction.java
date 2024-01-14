@@ -39,14 +39,22 @@ public class SignupAction extends org.apache.struts.action.Action {
         String user = formBean.getUsername();
         String pass = formBean.getPassword();
         
-        UserDto userDto = new UserDto(user, pass, name, email);
+
         
         //System.out.println("input: " + user + "  " + pass);
         
         
-        if ((user == null) || pass.length() < 8 || user.equals("") || (name == null) || (name.equals(""))) {
+        if ((user == null) || user.equals("") || (name == null) || (name.equals("")) || email == null || email.equals("")) {
+
+        }
+
+        UserDto userDto = userDao.getUserbyUsername(user, email);
+
+        if(userDto != null){
             return mapping.findForward(FAILURE);
         }
+
+        userDto = new UserDto(user, pass, name, email);
          
         
         //System.out.println("Action: " + userDto.logInfor());
@@ -58,4 +66,5 @@ public class SignupAction extends org.apache.struts.action.Action {
         }
 
     }
+
 }

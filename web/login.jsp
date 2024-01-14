@@ -41,12 +41,12 @@
 		</form>
 		<p class="wthree w3l">Fast Login With Your Favourite Social Profile</p>
 		<ul class="social-agileinfo wthree2">
-			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-			<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+			<li><a href="https://www.facebook.com/nam.nguyengiang.7374/"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="https://www.youtube.com/channel/UC2MoF0fabMMSIBl5wuwV2Gw"><i class="fa fa-youtube"></i></a></li>
 			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 			<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 		</ul>
-                <p class="copyright w3l">If you don't have account, Signup here <a href="./Signup.jsp" target="_blank">Signup</a></p>
+                <p class="copyright w3l">If you don't have account, Signup here <a href="Signup.jsp" target="_blank">Signup</a></p>
 	</div>
 	<div class="clear"></div>
 </div>
