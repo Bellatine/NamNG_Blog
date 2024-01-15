@@ -8,7 +8,6 @@ public class PostDto {
     private String post_content;
     private Date timecreate;
     private String image;
-
     private String name;
 
     public PostDto(int id, int user_id, String post_content, Date timecreate, String image) {
@@ -16,7 +15,7 @@ public class PostDto {
         this.user_id = user_id;
         this.post_content = post_content;
         this.timecreate = timecreate;
-        this.image = image;
+        this.image = "./jsp/img/" + image;
     }
 
     public PostDto(int user_id, String post_content, String image) {
@@ -75,6 +74,6 @@ public class PostDto {
 
     public String logPosts(){
         String pad = " - ";
-        return id + pad + user_id + pad + post_content + pad + image;
+        return id + pad + user_id + pad + post_content + pad + image + pad + name;
     }
 }

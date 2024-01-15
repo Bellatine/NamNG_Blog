@@ -14,6 +14,7 @@ import java.sql.SQLException;
  */
 public interface UserDao {
     public UserDto getUserbyUsername(String username, String email) throws SQLException;
+    UserDto getUserbyId(int Id);
 
     public int addUser(UserDto newUser) throws SQLException;
 

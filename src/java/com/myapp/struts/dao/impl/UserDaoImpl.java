@@ -51,6 +51,31 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public UserDto getUserbyId(int Id) {
+        Connection conn = Util.pool.getConnection();
+        UserDto user = null;
+        String query = "select * from users where id = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try{
+            preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setInt(1,Id);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                user = new UserDto(resultSet.getInt("id"),resultSet.getString("username"),
+                        resultSet.getString("password"), resultSet.getString("fullname"),
+                        resultSet.getString("email"),resultSet.getInt("status"),resultSet.getTime("timecreate"));
+                break;
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            Util.pool.releaseConnection(conn);
+        }
+        return user;
+    }
+
+    @Override
     public int addUser(UserDto newUser) throws SQLException {
         int res = -1;
         Connection conn = Util.pool.getConnection();

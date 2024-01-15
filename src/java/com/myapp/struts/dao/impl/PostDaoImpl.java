@@ -25,7 +25,7 @@ public class PostDaoImpl implements PostDao {
             resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
                 PostDto post = new PostDto(resultSet.getInt("id"), resultSet.getInt("user_id"), resultSet.getString("post_content"),
-                        resultSet.getDate("timecreate"),resultSet.getString("image"));
+                        resultSet.getDate("timecreate"),"./jsp/img/" + resultSet.getString("image"));
                 listPost.add(post);
                 //System.out.println(user.logInfor());
             }

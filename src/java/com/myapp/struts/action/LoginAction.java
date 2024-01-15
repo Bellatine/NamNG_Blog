@@ -21,6 +21,8 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,13 +32,14 @@ import java.util.List;
 public class LoginAction extends org.apache.struts.action.Action {
     private static final String SUCCESS = "success";
     private static final String FAILURE = "failure";
-    
+
+    private UserDao userDao = new UserDaoImpl();
+    private PostDao postDao = new PostDaoImpl();
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        UserDao userDao = new UserDaoImpl();
-        PostDao postDao = new PostDaoImpl();
+
         
         LoginForm formBean = (LoginForm) form;
         String user = formBean.getUsername();
@@ -54,9 +57,11 @@ public class LoginAction extends org.apache.struts.action.Action {
 
         if (userDto!=null && pass.equals(userDto.getPassword())){
             Util.user = userDto;
-            List<PostDto> listPost = postDao.getAllPost();
+            List<PostDto> listPost = getAllPost();
+
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonArray = objectMapper.writeValueAsString(listPost);
+            System.out.println(jsonArray);
             request.setAttribute("jsonArray", jsonArray);
             request.setAttribute("fullname", Util.user.getFullname());
             return mapping.findForward(SUCCESS);
@@ -65,4 +70,14 @@ public class LoginAction extends org.apache.struts.action.Action {
         }
 
     }
+
+    private List<PostDto>getAllPost(){
+        List<PostDto> listPost = postDao.getAllPost();
+        for(PostDto post : listPost){
+            post.setName(userDao.getUserbyId(post.getId()).getFullname());
+            System.out.println(post.logPosts());
+        }
+        return listPost;
+    }
+
 }
